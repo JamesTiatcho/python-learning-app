@@ -11,6 +11,9 @@ import {
   getDoc
 } from "https://www.gstatic.com/firebasejs/10.12.5/firebase-firestore.js";
 
+const savedTheme = localStorage.getItem("theme") || "light";
+document.documentElement.setAttribute("data-theme", savedTheme);
+
 export function escapeHTML(text) {
   return String(text)
     .replaceAll("&", "&amp;")
@@ -70,6 +73,10 @@ export function renderLayout(activePage = "") {
         </div>
       </div>
 
+      <button id="themeToggleBtn" class="theme-toggle" type="button">
+        Loading Theme...
+      </button>
+
       <nav>
         <a 
           class="${activePage === "dashboard" ? "active" : ""}" 
@@ -102,6 +109,20 @@ export function renderLayout(activePage = "") {
         </a>
 
         <a 
+          class="${activePage === "battle_lobby" ? "active" : ""}" 
+          href="battle_lobby.html"
+        >
+          Online Code Battle
+        </a>
+
+        <a 
+          class="${activePage === "code_battle" ? "active" : ""}" 
+          href="code_battle.html"
+        >
+          Code Battle
+        </a>
+
+        <a 
           class="${activePage === "leaderboard" ? "active" : ""}" 
           href="leaderboard.html"
         >
@@ -130,6 +151,8 @@ export function renderLayout(activePage = "") {
     <main class="content" id="content"></main>
   `;
 
+  setupThemeToggle();
+
   const logoutBtn = document.getElementById("logoutBtn");
 
   if (logoutBtn) {
@@ -138,6 +161,38 @@ export function renderLayout(activePage = "") {
       await signOut(auth);
       window.location.href = "login.html";
     });
+  }
+}
+
+function setupThemeToggle() {
+  const themeToggleBtn = document.getElementById("themeToggleBtn");
+
+  if (!themeToggleBtn) return;
+
+  const currentTheme = localStorage.getItem("theme") || "light";
+  document.documentElement.setAttribute("data-theme", currentTheme);
+  updateThemeButtonText(currentTheme);
+
+  themeToggleBtn.addEventListener("click", () => {
+    const activeTheme = document.documentElement.getAttribute("data-theme");
+    const newTheme = activeTheme === "dark" ? "light" : "dark";
+
+    document.documentElement.setAttribute("data-theme", newTheme);
+    localStorage.setItem("theme", newTheme);
+
+    updateThemeButtonText(newTheme);
+  });
+}
+
+function updateThemeButtonText(theme) {
+  const themeToggleBtn = document.getElementById("themeToggleBtn");
+
+  if (!themeToggleBtn) return;
+
+  if (theme === "dark") {
+    themeToggleBtn.textContent = "☀️ Light Mode";
+  } else {
+    themeToggleBtn.textContent = "🌙 Dark Mode";
   }
 }
 
