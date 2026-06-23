@@ -2,21 +2,138 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>Python Basics</title>
-  <script type="module">
-    import { auth } from "./firebase-config.js";
-    import { onAuthStateChanged } from "https://www.gstatic.com/firebasejs/10.12.5/firebase-auth.js";
+  <title>Python Basics - Welcome</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    onAuthStateChanged(auth, (user) => {
-      if (user) {
-        window.location.href = "dashboard.html";
-      } else {
-        window.location.href = "login.html";
-      }
-    });
-  </script>
+  <link rel="stylesheet" href="style.css?v=50">
 </head>
-<body>
-  Loading...
+<body class="welcome-body">
+
+  <div class="welcome-page">
+
+    <nav class="welcome-nav">
+      <div class="welcome-brand">
+        <div class="welcome-logo">McW</div>
+
+        <div>
+          <h1>Python Basics</h1>
+          <p>By: James Tiatcho</p>
+        </div>
+      </div>
+
+      <div class="welcome-nav-buttons">
+        <a href="login.html" class="btn secondary">Login</a>
+        <a href="register.html" class="btn">Register</a>
+      </div>
+    </nav>
+
+    <section class="welcome-hero">
+      <div class="welcome-left">
+        <p class="welcome-tag">Online Python Learning Platform</p>
+
+        <h2>
+          Learn Python Basics through Lessons, Quizzes, and Live Code Battles.
+        </h2>
+
+        <p class="welcome-description">
+          This system helps beginner students learn Python programming step-by-step.
+          It includes interactive lessons, code testing, final quiz battle,
+          certificate generation, leaderboard, lobby chat, and online 1v1 coding battle.
+        </p>
+
+        <div class="welcome-actions">
+          <a href="login.html" class="btn big-btn">Get Started</a>
+          <a href="register.html" class="btn secondary big-btn">Create Account</a>
+        </div>
+
+        <div class="welcome-mini-info">
+          <div>
+            <strong>7+</strong>
+            <span>Lessons</span>
+          </div>
+
+          <div>
+            <strong>Live</strong>
+            <span>Code Battle</span>
+          </div>
+
+          <div>
+            <strong>Auto</strong>
+            <span>Certificate</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="welcome-right">
+        <div class="code-preview-card">
+          <div class="code-preview-header">
+            <span></span>
+            <span></span>
+            <span></span>
+          </div>
+
+          <pre><code>def greet_student(name):
+    print("Welcome, " + name)
+
+greet_student("Student")</code></pre>
+
+          <div class="code-output-preview">
+            Output: Welcome, Student
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="welcome-features">
+      <div class="welcome-feature-card">
+        <h3>Interactive Lessons</h3>
+        <p>
+          Learn Python topics such as variables, data types, operators,
+          conditionals, loops, and functions.
+        </p>
+      </div>
+
+      <div class="welcome-feature-card">
+        <h3>Code Test</h3>
+        <p>
+          Students answer coding challenges before taking the final quiz.
+        </p>
+      </div>
+
+      <div class="welcome-feature-card">
+        <h3>Online 1v1 Battle</h3>
+        <p>
+          Challenge online students and compete in a real-time Python coding battle.
+        </p>
+      </div>
+
+      <div class="welcome-feature-card">
+        <h3>Leaderboard</h3>
+        <p>
+          View student scores and rankings based on completed activities.
+        </p>
+      </div>
+
+      <div class="welcome-feature-card">
+        <h3>Certificate</h3>
+        <p>
+          Generate a certificate after completing the required learning activities.
+        </p>
+      </div>
+
+      <div class="welcome-feature-card">
+        <h3>Admin Panel</h3>
+        <p>
+          Admin can monitor students, progress, scores, and system records.
+        </p>
+      </div>
+    </section>
+
+    <footer class="welcome-footer">
+      <p>© 2026 Python Basics Learning System. Created by James Tiatcho.</p>
+    </footer>
+
+  </div>
+
 </body>
 </html>
