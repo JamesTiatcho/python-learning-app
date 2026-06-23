@@ -250,7 +250,8 @@ function listenBattleRequests() {
         request.fromUserId === currentUser.uid &&
         request.status === "accepted" &&
         request.roomId &&
-        !alreadyRedirected
+        !alreadyRedirected &&
+        !sessionStorage.getItem("leftBattleRoom_" + request.roomId)
       ) {
         alreadyRedirected = true;
         window.location.href = `battle_room.html?roomId=${request.roomId}`;
@@ -285,8 +286,8 @@ function renderRequests(incomingRequests, outgoingRequests) {
               type="button"
               data-request-id="${escapeHTML(request.id)}"
               data-from-user-id="${escapeHTML(request.fromUserId)}"
-              data-from-name="${escapeHTML(request.fromName)}"
-              data-from-email="${escapeHTML(request.fromEmail)}"
+              data-from-name="${escapeHTML(request.fromName || "Student")}"
+              data-from-email="${escapeHTML(request.fromEmail || "")}"
             >
               Accept
             </button>
@@ -336,7 +337,6 @@ function renderRequests(incomingRequests, outgoingRequests) {
   }
 
   battleRequestsList.innerHTML = html;
-
   setupRequestButtons();
 }
 
@@ -359,6 +359,8 @@ function setupRequestButtons() {
       const startAtMs = Date.now() + 5000;
       const endAtMs = startAtMs + 180000;
 
+      sessionStorage.removeItem("leftBattleRoom_" + roomId);
+
       await setDoc(doc(db, "battleRooms", roomId), {
         roomId,
         requestId,
@@ -370,6 +372,7 @@ function setupRequestButtons() {
         player1Score: 0,
         player1Correct: 0,
         player1Wrong: 0,
+        player1HighestMultiplier: 1,
 
         player2Id: currentUser.uid,
         player2Name: getDisplayName(),
@@ -377,6 +380,7 @@ function setupRequestButtons() {
         player2Score: 0,
         player2Correct: 0,
         player2Wrong: 0,
+        player2HighestMultiplier: 1,
 
         startAtMs,
         endAtMs,
