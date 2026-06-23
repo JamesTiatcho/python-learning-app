@@ -614,3 +614,372 @@ th {
   color: #e2e8f0;
   margin-bottom: 0;
 }
+
+/* DARK MODE / LIGHT MODE */
+
+.theme-toggle {
+  width: 100%;
+  border: none;
+  background: #f8fafc;
+  color: #0f172a;
+  padding: 12px 14px;
+  border-radius: 12px;
+  cursor: pointer;
+  font-weight: 700;
+  margin-bottom: 18px;
+  box-shadow: 0 8px 18px rgba(0, 0, 0, 0.12);
+}
+
+.theme-toggle:hover {
+  opacity: 0.9;
+}
+
+/* Dark mode main background */
+html[data-theme="dark"] body {
+  background: #020617;
+  color: #e2e8f0;
+}
+
+html[data-theme="dark"] .content {
+  background:
+    radial-gradient(circle at top left, rgba(37, 99, 235, 0.14), transparent 30%),
+    radial-gradient(circle at bottom right, rgba(249, 115, 22, 0.12), transparent 30%),
+    #020617;
+}
+
+/* Sidebar */
+html[data-theme="dark"] .sidebar {
+  background: #020617;
+  color: #e2e8f0;
+  border-right: 1px solid #1e293b;
+}
+
+html[data-theme="dark"] nav a {
+  color: #cbd5e1;
+}
+
+html[data-theme="dark"] nav a:hover,
+html[data-theme="dark"] nav a.active {
+  background: #2563eb;
+  color: white;
+}
+
+html[data-theme="dark"] .theme-toggle {
+  background: #1e293b;
+  color: #e2e8f0;
+}
+
+/* Cards */
+html[data-theme="dark"] .card,
+html[data-theme="dark"] .question,
+html[data-theme="dark"] .coding-question,
+html[data-theme="dark"] .lesson-item {
+  background: #0f172a;
+  color: #e2e8f0;
+  border-color: #334155;
+}
+
+html[data-theme="dark"] .card h2,
+html[data-theme="dark"] .card h3,
+html[data-theme="dark"] .card h4 {
+  color: #f8fafc;
+}
+
+/* Lesson description */
+html[data-theme="dark"] .lesson-description {
+  background: #111827;
+  color: #cbd5e1;
+  border-left-color: #60a5fa;
+}
+
+/* Boxes */
+html[data-theme="dark"] .example-box {
+  background: #1e1b4b;
+  border-color: #3730a3;
+  border-left-color: #f97316;
+  color: #e2e8f0;
+}
+
+html[data-theme="dark"] .task-box {
+  background: #052e16;
+  border-color: #166534;
+  border-left-color: #22c55e;
+  color: #e2e8f0;
+}
+
+html[data-theme="dark"] .quiz-box {
+  background: #172554;
+  border-color: #1d4ed8;
+  border-left-color: #60a5fa;
+  color: #e2e8f0;
+}
+
+html[data-theme="dark"] .code-challenge-box {
+  background: #0f172a;
+  border-color: #334155;
+  border-left-color: #60a5fa;
+  color: #e2e8f0;
+}
+
+/* Inputs and textareas */
+html[data-theme="dark"] input,
+html[data-theme="dark"] textarea,
+html[data-theme="dark"] .challenge-code-area {
+  background: #020617;
+  color: #e2e8f0;
+  border-color: #475569;
+}
+
+html[data-theme="dark"] input::placeholder,
+html[data-theme="dark"] textarea::placeholder {
+  color: #94a3b8;
+}
+
+/* Tables */
+html[data-theme="dark"] table,
+html[data-theme="dark"] th,
+html[data-theme="dark"] td {
+  border-color: #334155;
+  color: #e2e8f0;
+}
+
+html[data-theme="dark"] th {
+  background: #1e293b;
+}
+
+/* Status boxes */
+html[data-theme="dark"] .lesson-status,
+html[data-theme="dark"] .hint,
+html[data-theme="dark"] .message {
+  background: #111827;
+  color: #e2e8f0;
+  border: 1px solid #334155;
+}
+
+/* Details */
+html[data-theme="dark"] details {
+  background: #020617;
+  border-color: #475569;
+  color: #e2e8f0;
+}
+
+html[data-theme="dark"] details summary {
+  color: #60a5fa;
+}
+
+/* Certificate */
+html[data-theme="dark"] .certificate {
+  background: #0f172a;
+  color: #e2e8f0;
+}
+
+html[data-theme="dark"] .cert-inner {
+  border-color: #e2e8f0;
+}
+
+/* Answer key */
+html[data-theme="dark"] .answer-key-box {
+  background: #450a0a;
+  border-color: #991b1b;
+  border-left-color: #ef4444;
+  color: #fee2e2;
+}
+
+/* CODE BATTLE */
+
+.battle-stats {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 15px;
+  margin: 20px 0;
+}
+
+.battle-stats div,
+.battle-result-grid div {
+  background: #f8fafc;
+  border: 1px solid #dbeafe;
+  border-radius: 16px;
+  padding: 18px;
+  text-align: center;
+}
+
+.battle-stats span,
+.battle-result-grid span {
+  display: block;
+  font-size: 13px;
+  color: #64748b;
+  margin-bottom: 8px;
+}
+
+.battle-stats strong,
+.battle-result-grid strong {
+  font-size: 28px;
+  color: #2563eb;
+}
+
+.battle-result-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 16px;
+  margin: 24px 0;
+}
+
+.battle-feedback {
+  margin-top: 18px;
+  padding: 16px;
+  border-radius: 16px;
+  font-weight: 700;
+}
+
+.battle-feedback.correct {
+  background: #dcfce7;
+  color: #166534;
+  border: 1px solid #bbf7d0;
+}
+
+.battle-feedback.wrong {
+  background: #fee2e2;
+  color: #991b1b;
+  border: 1px solid #fecaca;
+}
+
+html[data-theme="dark"] .battle-stats div,
+html[data-theme="dark"] .battle-result-grid div {
+  background: #0f172a;
+  border-color: #334155;
+}
+
+html[data-theme="dark"] .battle-stats span,
+html[data-theme="dark"] .battle-result-grid span {
+  color: #94a3b8;
+}
+
+html[data-theme="dark"] .battle-stats strong,
+html[data-theme="dark"] .battle-result-grid strong {
+  color: #60a5fa;
+}
+
+@media (max-width: 850px) {
+  .battle-stats,
+  .battle-result-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* ONLINE 1V1 CODE BATTLE */
+
+.online-user-card,
+.request-card {
+  background: #ffffff;
+  border: 1px solid #e2e8f0;
+  border-left: 6px solid #2563eb;
+  padding: 18px;
+  border-radius: 18px;
+  margin-bottom: 14px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 12px;
+}
+
+.online-user-card h3,
+.request-card h3 {
+  margin: 0;
+}
+
+.online-user-card p,
+.request-card p {
+  margin: 6px 0 0;
+  color: #64748b;
+}
+
+.battle-room-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 18px;
+}
+
+.player-score-card {
+  background: #f8fafc;
+  border: 1px solid #dbeafe;
+  border-radius: 18px;
+  padding: 20px;
+  text-align: center;
+}
+
+.player-score-card.active-player {
+  border-color: #2563eb;
+  box-shadow: 0 10px 25px rgba(37, 99, 235, 0.15);
+}
+
+.player-score-card h3 {
+  margin: 0 0 10px;
+}
+
+.player-score-card strong {
+  font-size: 36px;
+  color: #2563eb;
+}
+
+.battle-timer-box {
+  background: #0f172a;
+  color: white;
+  padding: 20px;
+  border-radius: 18px;
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.battle-timer-box strong {
+  font-size: 40px;
+}
+
+.battle-result-box {
+  padding: 24px;
+  border-radius: 20px;
+  text-align: center;
+  margin-top: 20px;
+}
+
+.battle-result-box.win {
+  background: #dcfce7;
+  color: #166534;
+  border: 1px solid #bbf7d0;
+}
+
+.battle-result-box.lose {
+  background: #fee2e2;
+  color: #991b1b;
+  border: 1px solid #fecaca;
+}
+
+.battle-result-box.draw {
+  background: #fef9c3;
+  color: #854d0e;
+  border: 1px solid #fde68a;
+}
+
+html[data-theme="dark"] .online-user-card,
+html[data-theme="dark"] .request-card,
+html[data-theme="dark"] .player-score-card {
+  background: #0f172a;
+  color: #e2e8f0;
+  border-color: #334155;
+}
+
+html[data-theme="dark"] .online-user-card p,
+html[data-theme="dark"] .request-card p {
+  color: #94a3b8;
+}
+
+@media (max-width: 850px) {
+  .battle-room-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .online-user-card,
+  .request-card {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+}
