@@ -1,0 +1,616 @@
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  background: #f4f7fb;
+  color: #1e293b;
+  min-height: 100vh;
+}
+
+/* SIDEBAR */
+
+.sidebar {
+  width: 280px;
+  background: #111827;
+  color: white;
+  padding: 24px;
+  position: fixed;
+  height: 100vh;
+  overflow-y: auto;
+}
+
+.brand {
+  display: flex;
+  gap: 12px;
+  align-items: center;
+  margin-bottom: 28px;
+}
+
+.logo {
+  width: 52px;
+  height: 52px;
+  border-radius: 14px;
+  background: #f04842;
+  display: grid;
+  place-items: center;
+  font-weight: bold;
+  color: #111827;
+}
+
+.brand h1 {
+  margin: 0;
+  font-size: 20px;
+}
+
+.brand p {
+  margin: 4px 0 0;
+  color: #cbd5e1;
+  font-size: 13px;
+}
+
+.small {
+  font-size: 12px;
+}
+
+nav {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+nav a {
+  color: #d1d5db;
+  text-decoration: none;
+  padding: 12px 14px;
+  border-radius: 12px;
+}
+
+nav a:hover,
+nav a.active {
+  background: #2563eb;
+  color: white;
+}
+
+/* MAIN CONTENT */
+
+.content {
+  margin-left: 280px;
+  padding: 32px;
+}
+
+/* LOGIN / REGISTER BACKGROUND */
+
+.auth-content {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 30px;
+
+  background-image:
+    linear-gradient(
+      rgba(15, 23, 42, 0.65),
+      rgba(15, 23, 42, 0.65)
+    ),
+    url("background.jpg");
+
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+.auth-card {
+  width: 100%;
+  max-width: 450px;
+  background: rgba(255, 255, 255, 0.92);
+  padding: 35px;
+  border-radius: 24px;
+  box-shadow: 0 25px 60px rgba(0, 0, 0, 0.25);
+  backdrop-filter: blur(10px);
+}
+
+.auth-card h1 {
+  color: #0f172a;
+  margin-bottom: 10px;
+}
+
+.auth-card p {
+  color: #475569;
+}
+
+.auth-card label {
+  display: block;
+  margin-top: 15px;
+  margin-bottom: 6px;
+  font-weight: 600;
+  color: #0f172a;
+}
+
+.auth-card input,
+.card input,
+.card textarea {
+  width: 100%;
+  padding: 13px;
+  border: 1px solid #cbd5e1;
+  border-radius: 12px;
+  margin: 8px 0 14px;
+  font-size: 15px;
+}
+
+.auth-card input:focus,
+.card input:focus,
+.card textarea:focus {
+  outline: none;
+  border-color: #2563eb;
+  box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.15);
+}
+
+.auth-card button,
+.btn {
+  display: inline-block;
+  border: none;
+  background: #2563eb;
+  color: white;
+  padding: 12px 18px;
+  border-radius: 12px;
+  cursor: pointer;
+  font-weight: bold;
+  text-decoration: none;
+  margin-top: 10px;
+  margin-right: 8px;
+}
+
+.auth-card button {
+  width: 100%;
+  margin-top: 22px;
+  font-size: 16px;
+}
+
+.auth-card button:hover,
+.btn:hover {
+  opacity: 0.9;
+}
+
+.btn.success {
+  background: #16a34a;
+}
+
+.btn.orange {
+  background: #f97316;
+}
+
+.btn.danger {
+  background: #dc2626;
+}
+
+.btn.secondary {
+  background: #64748b;
+}
+
+/* HERO */
+
+.hero {
+  background: linear-gradient(135deg, #2563eb, #0f172a);
+  color: white;
+  padding: 30px;
+  border-radius: 24px;
+  margin-bottom: 24px;
+}
+
+.hero h2 {
+  margin: 0;
+  font-size: 34px;
+}
+
+.tag {
+  display: inline-block;
+  background: rgba(255, 255, 255, 0.18);
+  padding: 6px 12px;
+  border-radius: 999px;
+  font-size: 13px;
+  margin: 0 0 10px;
+}
+
+/* CARDS */
+
+.card {
+  background: white;
+  padding: 28px;
+  border-radius: 22px;
+  box-shadow: 0 12px 30px rgba(15, 23, 42, 0.08);
+  margin-bottom: 24px;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 18px;
+}
+
+/* CODE BLOCK */
+
+pre {
+  background: #0f172a;
+  color: #e5e7eb;
+  padding: 18px;
+  border-radius: 16px;
+  overflow-x: auto;
+  line-height: 1.6;
+}
+
+/* LESSON BOXES */
+
+.example-box {
+  background: #fefce8;
+  border-left: 5px solid #eab308;
+  padding: 16px;
+  border-radius: 12px;
+  margin: 18px 0;
+}
+
+.task-box {
+  background: #f0fdf4;
+  border-left: 5px solid #16a34a;
+  padding: 16px;
+  border-radius: 12px;
+  margin: 18px 0;
+}
+
+.quiz-box {
+  background: #fff7ed;
+  border-left: 5px solid #f97316;
+  padding: 16px;
+  border-radius: 12px;
+  margin: 18px 0;
+}
+
+.question,
+.coding-question {
+  background: white;
+  border: 1px solid #e2e8f0;
+  padding: 16px;
+  border-radius: 14px;
+  margin-bottom: 14px;
+}
+
+.question label {
+  display: block;
+  margin: 8px 0;
+}
+
+.coding-exam-box {
+  background: #f8fafc;
+  border-left: 5px solid #0ea5e9;
+  padding: 18px;
+  border-radius: 14px;
+  margin: 22px 0;
+}
+
+textarea {
+  min-height: 140px;
+  font-family: Consolas, monospace;
+}
+
+/* RUN CODE OUTPUT */
+
+.practice-buttons {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+  margin-top: 10px;
+  margin-bottom: 15px;
+}
+
+.code-output {
+  background: #0f172a;
+  color: #e2e8f0;
+  padding: 15px;
+  border-radius: 12px;
+  min-height: 70px;
+  white-space: pre-wrap;
+  font-family: Consolas, monospace;
+  margin-top: 10px;
+}
+
+/* MESSAGES */
+
+.hint,
+.message {
+  background: #eff6ff;
+  padding: 12px;
+  border-radius: 12px;
+  margin-top: 14px;
+}
+
+.message.success {
+  background: #dcfce7;
+  color: #166534;
+}
+
+.message.error {
+  background: #fee2e2;
+  color: #991b1b;
+}
+
+/* PROGRESS */
+
+.progress-bar {
+  height: 12px;
+  background: #e2e8f0;
+  border-radius: 999px;
+  overflow: hidden;
+}
+
+.progress-bar span {
+  display: block;
+  height: 100%;
+  background: #22c55e;
+}
+
+/* LESSON LIST */
+
+.lesson-list {
+  display: grid;
+  gap: 12px;
+}
+
+.lesson-item {
+  display: flex;
+  justify-content: space-between;
+  color: #1e293b;
+  text-decoration: none;
+  padding: 16px;
+  border: 1px solid #e2e8f0;
+  border-radius: 14px;
+  background: white;
+}
+
+.lesson-item:hover {
+  border-color: #2563eb;
+  box-shadow: 0 8px 20px rgba(37, 99, 235, 0.12);
+}
+
+.badge {
+  display: inline-block;
+  padding: 6px 10px;
+  border-radius: 999px;
+  font-size: 13px;
+  font-weight: bold;
+}
+
+.badge.done {
+  background: #dcfce7;
+  color: #166534;
+}
+
+.badge.ready {
+  background: #dbeafe;
+  color: #1d4ed8;
+}
+
+.badge.locked {
+  background: #fee2e2;
+  color: #991b1b;
+}
+
+.lesson-status {
+  background: #f1f5f9;
+  padding: 14px;
+  border-radius: 12px;
+  margin: 18px 0;
+}
+
+.lesson-navigation {
+  margin-top: 20px;
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+/* REVIEW */
+
+.review-box {
+  padding: 16px;
+  border-radius: 14px;
+  margin-bottom: 12px;
+  border: 1px solid #e2e8f0;
+}
+
+.review-box.correct {
+  background: #dcfce7;
+  color: #166534;
+}
+
+.review-box.wrong {
+  background: #fee2e2;
+  color: #991b1b;
+}
+
+/* TABLE */
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+th,
+td {
+  border: 1px solid #e2e8f0;
+  padding: 13px;
+  text-align: left;
+}
+
+th {
+  background: #f1f5f9;
+}
+
+/* CERTIFICATE */
+
+.certificate {
+  background: white;
+  padding: 40px;
+  border-radius: 24px;
+  max-width: 1000px;
+  margin: 0 auto;
+}
+
+.cert-inner {
+  border: 8px double #1e293b;
+  padding: 60px;
+  text-align: center;
+}
+
+.cert-small {
+  text-transform: uppercase;
+  letter-spacing: 4px;
+  font-weight: bold;
+}
+
+.certificate h1 {
+  font-size: 44px;
+  margin: 10px 0;
+}
+
+.certificate h2 {
+  font-size: 38px;
+  color: #2563eb;
+  margin: 20px 0;
+}
+
+.signature {
+  margin-top: 60px;
+  display: inline-block;
+}
+
+.sig-name {
+  font-family: "Brush Script MT", cursive;
+  font-size: 42px;
+}
+
+.sig-line {
+  border-top: 2px solid #111827;
+  width: 260px;
+  margin: 0 auto;
+}
+
+.print-btn {
+  display: block;
+  margin: 20px auto;
+}
+
+/* PRINT */
+
+@media print {
+  .sidebar,
+  .print-btn {
+    display: none;
+  }
+
+  .content {
+    margin: 0;
+    padding: 0;
+  }
+
+  body {
+    background: white;
+  }
+}
+
+/* RESPONSIVE */
+
+@media (max-width: 850px) {
+  .sidebar {
+    position: relative;
+    width: 100%;
+    height: auto;
+  }
+
+  .content {
+    margin-left: 0;
+    padding: 18px;
+  }
+
+  .grid {
+    grid-template-columns: 1fr;
+  }
+
+  .lesson-item {
+    flex-direction: column;
+    gap: 8px;
+  }
+
+  .hero h2 {
+    font-size: 26px;
+  }
+
+  .certificate {
+    padding: 15px;
+  }
+
+  .cert-inner {
+    padding: 25px;
+  }
+
+  .certificate h1 {
+    font-size: 28px;
+  }
+
+  .certificate h2 {
+    font-size: 26px;
+  }
+}
+
+/* CODE TEST PAGE */
+
+.code-challenge-box {
+  background: linear-gradient(135deg, #f8fafc, #eff6ff);
+  border: 1px solid #bfdbfe;
+  border-left: 6px solid #2563eb;
+  padding: 22px;
+  border-radius: 20px;
+  margin: 24px 0;
+  box-shadow: 0 10px 25px rgba(37, 99, 235, 0.08);
+}
+
+.challenge-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+}
+
+.challenge-header h3 {
+  margin: 0;
+}
+
+.challenge-code-area {
+  min-height: 180px;
+  font-family: Consolas, monospace;
+  background: white;
+  border: 1px solid #cbd5e1;
+  border-radius: 16px;
+  resize: vertical;
+}
+
+.answer-key-box {
+  background: #fff1f2;
+  border: 1px solid #fecdd3;
+  border-left: 6px solid #e11d48;
+  padding: 18px;
+  border-radius: 16px;
+  margin-top: 18px;
+}
+
+.answer-key-box h4 {
+  color: #9f1239;
+  margin-top: 0;
+}
+
+.answer-key-box pre {
+  background: #0f172a;
+  color: #e2e8f0;
+  margin-bottom: 0;
+}
