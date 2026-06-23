@@ -983,3 +983,73 @@ html[data-theme="dark"] .request-card p {
     align-items: flex-start;
   }
 }
+
+/* LOBBY CHAT */
+
+.lobby-chat-messages {
+  height: 280px;
+  overflow-y: auto;
+  background: #f8fafc;
+  border: 1px solid #e2e8f0;
+  border-radius: 18px;
+  padding: 16px;
+  margin-bottom: 14px;
+}
+
+.chat-message {
+  max-width: 75%;
+  margin-bottom: 12px;
+  padding: 10px 12px;
+  border-radius: 14px;
+}
+
+.chat-message.mine {
+  margin-left: auto;
+  background: #2563eb;
+  color: white;
+}
+
+.chat-message.other {
+  margin-right: auto;
+  background: white;
+  border: 1px solid #e2e8f0;
+  color: #0f172a;
+}
+
+.chat-name {
+  font-size: 12px;
+  font-weight: 700;
+  opacity: 0.8;
+  margin-bottom: 4px;
+}
+
+.chat-text {
+  font-size: 14px;
+  line-height: 1.5;
+  word-wrap: break-word;
+}
+
+.lobby-chat-form {
+  display: flex;
+  gap: 10px;
+}
+
+.lobby-chat-form input {
+  flex: 1;
+  margin: 0;
+}
+
+.lobby-chat-form button {
+  margin: 0;
+}
+
+html[data-theme="dark"] .lobby-chat-messages {
+  background: #020617;
+  border-color: #334155;
+}
+
+html[data-theme="dark"] .chat-message.other {
+  background: #0f172a;
+  color: #e2e8f0;
+  border-color: #334155;
+}
