@@ -28,6 +28,7 @@ let localMultiplier = 1;
 let localHighestMultiplier = 1;
 let localTimer = null;
 let alreadyFinished = false;
+let finishedScreenShown = false;
 
 const battleChallenges = [
   {
@@ -617,9 +618,19 @@ async function finishBattle() {
     winner,
     finishedAt: serverTimestamp()
   });
+
+  if (room.requestId) {
+    await updateDoc(doc(db, "battleRequests", room.requestId), {
+      status: "finished",
+      finishedAt: serverTimestamp()
+    });
+  }
 }
 
 function showFinishedBattle(room) {
+  if (finishedScreenShown) return;
+
+  finishedScreenShown = true;
   clearInterval(localTimer);
 
   const area = document.getElementById("battleQuestionArea");
@@ -651,9 +662,18 @@ function showFinishedBattle(room) {
         ${escapeHTML(room.player2Name)} Score: <strong>${room.player2Score || 0}</strong>
       </p>
 
-      <a class="btn" href="battle_lobby.html">Back to Lobby</a>
+      <button class="btn" id="backToLobbyBtn" type="button">Back to Lobby</button>
     </div>
   `;
+
+  const backToLobbyBtn = document.getElementById("backToLobbyBtn");
+
+  if (backToLobbyBtn) {
+    backToLobbyBtn.addEventListener("click", () => {
+      sessionStorage.setItem("leftBattleRoom_" + room.roomId, "yes");
+      window.location.href = "battle_lobby.html";
+    });
+  }
 }
 
 function setupNoCopyPaste() {
