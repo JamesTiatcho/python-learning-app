@@ -1,69 +1,7 @@
-PYTHON LEARNING WEBSITE - FIREBASE VERSION
+This project is an online learning platform for Basic Python programming. It is designed for beginner students who want to learn Python in an interactive and engaging way.
 
-FILES INCLUDED:
-- index.html
-- login.html
-- register.html
-- dashboard.html
-- lessons.html
-- final_quiz.html
-- leaderboard.html
-- certificate.html
-- admin.html
-- firebase-config.js
-- data.js
-- main.js
-- auth.js
-- dashboard.js
-- lessons.js
-- final_quiz.js
-- leaderboard.js
-- certificate.js
-- admin.js
-- style.css
-- firestore-rules.txt
+The system includes lessons, coding activities, quizzes, leaderboard, certificate generation, and an online 1v1 code battle feature. Students can create an account, log in, study Python lessons, answer coding exercises, take a final quiz, and compete with other online users through real-time coding battles.
 
-PROCESS:
+Main Purpose
 
-1. Firebase Console
-   - Authentication > Sign-in method > Enable Email/Password
-   - Firestore Database > Create database > Start in test mode muna
-
-2. VS Code
-   - Open this folder
-   - Install Live Server extension
-   - Right click login.html
-   - Open with Live Server
-
-3. Register student account
-   - Go to register.html
-   - Create account
-   - It will create a document inside Firestore users collection.
-
-4. Admin setup
-   - Register your own admin email first using register.html
-   - Go to Firebase Console > Firestore Database > users
-   - Open your user document
-   - Change role from "student" to "admin"
-   - Then login again
-   - Open admin.html
-
-5. Firestore Rules
-   - Copy firestore-rules.txt
-   - Firebase Console > Firestore Database > Rules
-   - Paste rules
-   - Publish
-
-NOTE:
-Firebase config apiKey is okay to be visible in frontend.
-Security is handled by Firestore Rules and Authentication.
-
-FEATURES:
-- Register/Login
-- Lesson progress saved per user
-- Task + mini quiz required before lesson completion
-- Final quiz battle scoring saved in Firestore
-- Scoreboard / leaderboard
-- No retake unless admin unlocks
-- Certificate if perfect score
-- Admin can unlock final quiz by deleting final score record
+The main purpose of this project is to make learning Python easier and more interactive. Instead of only reading lessons, students can also practice coding, test their answers, and compete with classmates.
