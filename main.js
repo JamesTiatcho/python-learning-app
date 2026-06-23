@@ -65,7 +65,7 @@ export function renderLayout(activePage = "") {
   layout.innerHTML = `
     <aside class="sidebar">
       <div class="brand">
-        <div class="logo">McW</div>
+        <div class="logo">Py</div>
         <div>
           <h1>Python Basics</h1>
           <p>By: James Tiatcho</p>
