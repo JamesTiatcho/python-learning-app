@@ -16,6 +16,9 @@ import {
   addDoc,
   updateDoc,
   onSnapshot,
+  query,
+  orderBy,
+  limit,
   serverTimestamp
 } from "https://www.gstatic.com/firebasejs/10.12.5/firebase-firestore.js";
 
@@ -37,6 +40,8 @@ requireLogin(async (user, profile) => {
   setupHeartbeat();
   listenOnlineUsers();
   listenBattleRequests();
+  listenLobbyChat();
+  setupLobbyChat();
 });
 
 function getDisplayName() {
@@ -114,6 +119,28 @@ function renderLobby() {
           Loading requests...
         </div>
       </div>
+    </div>
+
+    <div class="card">
+      <h2>Lobby Chat</h2>
+      <p class="lesson-description">
+        Chat with online students while waiting for a battle.
+      </p>
+
+      <div id="lobbyChatMessages" class="lobby-chat-messages">
+        Loading messages...
+      </div>
+
+      <form id="lobbyChatForm" class="lobby-chat-form">
+        <input 
+          type="text" 
+          id="lobbyChatInput" 
+          placeholder="Type your message..." 
+          autocomplete="off"
+          required
+        >
+        <button class="btn" type="submit">Send</button>
+      </form>
     </div>
 
     <div class="card">
@@ -417,5 +444,71 @@ function setupRequestButtons() {
         cancelledAt: serverTimestamp()
       });
     });
+  });
+}
+
+function listenLobbyChat() {
+  const messagesRef = query(
+    collection(db, "lobbyMessages"),
+    orderBy("createdAtMs", "asc"),
+    limit(50)
+  );
+
+  onSnapshot(messagesRef, (snapshot) => {
+    const chatBox = document.getElementById("lobbyChatMessages");
+
+    if (!chatBox) return;
+
+    let html = "";
+
+    snapshot.forEach((docSnap) => {
+      const message = docSnap.data();
+      const isMine = message.userId === currentUser.uid;
+
+      html += `
+        <div class="chat-message ${isMine ? "mine" : "other"}">
+          <div class="chat-name">
+            ${escapeHTML(message.name || "Student")}
+          </div>
+
+          <div class="chat-text">
+            ${escapeHTML(message.text || "")}
+          </div>
+        </div>
+      `;
+    });
+
+    if (!html) {
+      html = `<p class="message">No messages yet. Start the conversation.</p>`;
+    }
+
+    chatBox.innerHTML = html;
+    chatBox.scrollTop = chatBox.scrollHeight;
+  });
+}
+
+function setupLobbyChat() {
+  const chatForm = document.getElementById("lobbyChatForm");
+
+  if (!chatForm) return;
+
+  chatForm.addEventListener("submit", async (event) => {
+    event.preventDefault();
+
+    const input = document.getElementById("lobbyChatInput");
+    const text = input.value.trim();
+
+    if (!text) return;
+
+    await addDoc(collection(db, "lobbyMessages"), {
+      userId: currentUser.uid,
+      name: getDisplayName(),
+      email: currentUser.email,
+      text,
+      createdAtMs: Date.now(),
+      createdAt: serverTimestamp()
+    });
+
+    input.value = "";
   });
 }
